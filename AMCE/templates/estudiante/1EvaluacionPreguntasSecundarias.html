@@ -1,0 +1,51 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Pregunta Inicial
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand"> Evaluación <br> preguntas secundarias</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+ <center><h4>¡Enhorabuena!</h4> </center>
+<br>
+<br>
+<h6>
+    Todos los integrantes de tu equipo han planteado su preguntas secundarias. Ahora es momento de evaluarlas y escoger aquellas que consideres que cumple con alguno o varios los puntos siguientes: <br>
+    <br>
+<br>
+<ul>
+    <li>
+       <b>Me gusta:</b> Si crees que la pregunta es clara y es una pregunta más especifica que la pregunta inicial. <br>
+    </li>
+    <li>
+    <b> No le entiendo:</b> Si crees que la pregunta es confusa o que podría ser mejor redactada. <br>
+    </li>
+    <li>
+       <b> No me gusta:</b> Si consideras que la pregunta no está relacionada al tema o bien que es una pregunta sin sentido.<br>
+    </li>
+</ul>
+</h6>
+<br>
+<br>
+<br>
+<br>
+
+<center> <a name="profesor" class="btn btn-primary" class="close" href="{% url 'AMCE:EvaluacionPreSec'  id_grupo=id_grupo id_tema=id_tema %}" style=" background-color: #6FCFA1;
+    border: 0px; padding: 5px 15px;" id="submit-form">Continuar al siguente paso</a></center>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Core theme JS-->
+    <script src="{%static 'js/MG1.js' %}"></script>
+    <!-- JS para modal del ingresar código de clase-->
+    <script src="{%static 'js/modal.js' %}"></script>
+{% endblock %}
+
+

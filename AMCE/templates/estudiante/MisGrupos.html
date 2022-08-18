@@ -1,0 +1,38 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Mis Grupos
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand">Mis grupos</div>
+    <a class="nav-bar-btn"  href="{% url 'AMCE:EstInscribirGrupo' %}" id="inscribir_grupo"> <img src="{% static 'assets/images/bt_grupos.png'%}"></a>
+{% endblock %}
+
+{% block navbar_ctxt %}
+    <li class="nav-item active"><a class="nav-link" aria-current="page" href="{% url 'AMCE:EstMisGrupos' %}">Mis Grupos</a></li>
+{% endblock %}
+
+{% block inner_content %}
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content">
+        <!--Grupos-->
+        {% for g in grupos_inscritos %}
+        <div class="col mb-3">
+                <div class="grupo-card card h-100" >
+                    <!-- Detalles del grupo -->
+                    <div class="card-body p-3">
+                        <a href="{% url 'AMCE:EstPaginaGrupo' id_grupo=g.id_grupo %}"> 
+                            <b>Grupo:</b> {{g.nombre_grupo}}<br>
+                            <b>Materia: </b> {{g.materia}}<br>
+                            <b>Institución: {{g.institucion}}</b><br>
+                        </a>
+                    </div>
+                </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

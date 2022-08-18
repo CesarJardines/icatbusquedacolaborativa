@@ -1,0 +1,26 @@
+
+{% extends "profesor/base_mainpage.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    {{ equipo_nombre }}
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand">{{ equipo_nombre }}</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+    <h3>Integrantes:</h3>
+    </br>
+    <!--integrantes-->
+    {% for e in estudiantes_nombres %}
+    <div>
+        <h4>{{ e }}</h4>
+    </div>
+    </br>
+    {% endfor %}
+{% endblock %}

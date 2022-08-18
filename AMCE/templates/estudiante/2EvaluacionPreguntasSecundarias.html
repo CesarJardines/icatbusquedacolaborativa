@@ -1,0 +1,97 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+
+{% block extra-css %}
+
+<style>
+    .btn-secondary,.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #6FCFA1 !important;
+}
+
+.btn-secondary.active, .btn-group, .btn-group-toggle {
+    background-color: #458365 !important;
+}
+
+
+</style>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+  </style>
+
+{% endblock %}
+
+{% block title %}
+   Evaluación Preguntas Secundarias
+{% endblock %}
+
+{% block header_ctxt %}
+<div class="nav-bar-title navbar-brand"> Evaluación <br> preguntas secundarias</div>
+<a class=""></a>
+{% endblock %}
+
+
+{% block inner_content %}
+<h3> <p style="font-family: 'Capriola'; font-size: 20px;"> Tema: {{ temaNombre }} </p></h3> 
+<h3> <p style="font-family: 'Capriola'; font-size: 20px;"> Pregunta Inicial: {{ pregunta.id_pregunta.contenido }}  </p></h3> 
+<br>
+<center> <h4> Evalua las preguntas secundarias de tu equipo </h4> </center>
+<br>
+<br>
+      <form method="post">
+      {% csrf_token %}
+        <div class="w3-container">
+            {% for i in preguntasSec %}
+                <div >
+                <header >
+                    <br>
+                    <table style="width:100%">
+                        <h4>{{ i.id_pregunta.contenido }}</h4>  
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active" >
+                              <input type="radio" name="options{{forloop.counter}}" id="megusta" value="3" autocomplete="off" required> Me gusta
+                            </label>
+                            <label class="btn btn-secondary" >
+                              <input type="radio" name="options{{forloop.counter}}" id="noleentiendo" value="-1"  autocomplete="off" required> No le entiendo
+                            </label>
+                            <label class="btn btn-secondary" >
+                              <input type="radio" name="options{{forloop.counter}}" id="nomegusta" value="-2"  autocomplete="off" required> No me gusta
+                            </label>
+                          </div>
+                      </table>
+                    <br>
+                    <br>
+                    
+                </header>
+                <br>
+                </div>
+            {% endfor %}
+
+
+        </div>
+       
+        <button type="submit" style="color: white; background-color: #6FCFA1;
+        border: 0px; margin-left: 40%;">Continuar al siguiente paso</button>
+  </form>
+
+
+
+<br>
+<br>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- Core theme JS-->
+    <script src="{%static 'js/MG1.js' %}"></script>
+    <!-- JS para modal del ingresar código de clase-->
+    <script src="{%static 'js/modal.js' %}"></script>
+{% endblock %}
+
+{% block footer %}
+<footer style=" margin-left: 0px;">
+    <p style="position: relative; width:100%; left: 0px; bottom: 0; width: 100%;  text-align: center; color: black;">&copy; ICAT | UNAM</p>
+  </footer>
+{% endblock %}

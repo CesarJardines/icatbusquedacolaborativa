@@ -1,0 +1,29 @@
+{% extends "profesor/base.html" %}
+
+{% load static %}
+
+{% block navbar %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    {% block header_ctxt %}
+    <li class="nav-item active"><a class="nav-link" aria-current="page" href="{% url 'AMCE:ProfMisGrupos' %}">Mis Grupos</a></li>
+    <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'AMCE:ProfMisTemas' %}">Mis Temas</a></li>
+    {% endblock %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            {% block navbar_ctxt %}
+                <li class="nav-item {% block grupos-active %}{% endblock %}"><a class="nav-link" aria-current="page" href="{% url 'AMCE:ProfMisGrupos' %}">Mis Grupos</a></li>
+                <li class="nav-item {% block temas-active %}{% endblock %}"><a class="nav-link" aria-current="page" href="{% url 'AMCE:ProfMisTemas' %}">Mis Temas</a></li>
+            {% endblock %}
+            
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5 mt-3">
+        {% block inner_content %}
+        
+        {% endblock %}
+    </div>
+{% endblock %}

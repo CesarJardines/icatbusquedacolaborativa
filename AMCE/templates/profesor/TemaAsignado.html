@@ -1,0 +1,35 @@
+{% extends "profesor/base_mainpage.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{ tema.nombre }}
+{% endblock %}
+
+{% block header_ctxt %}
+<div class="nav-bar-title navbar-brand"><p class="small-text">{{ tema.nombre_tema }}</p></div>
+<a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+    <h3 class="mb-3">{{ grupo.grupo }}</h3>
+    <h4 class="mb-3">{{ grupo.materia }} - {{ grupo.institucion }}</h4>
+    <a class="btn btn-outline-dark btn-block my-3" href="{% url 'AMCE:ProfProgresoGrupo' id_grupo=grupo.id_grupo id_tema=tema.id_tema %}">Ver progreso de todos</a>
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content">
+        <!--Equipos-->
+        {% for e in equipos %}
+        <div class="col mb-5">
+            <a href="{% url 'AMCE:ProfProgresoEquipo' id_grupo=grupo.id_grupo id_tema=tema.id_tema id_equipo=e.id_equipo %}">
+                <div class="card h-100" >
+                    <!-- Detalles del equipo -->
+                    <div class="card-body p-4">
+                        <div>
+                            <h4 class="fw-bolder">{{ e.nombre_equipo }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "profesor/base.html" %}
+
+{% load static %}
+
+{% block navbar %}
+    {% block header_ctxt %}
+
+    {% endblock %}
+    <a class=""></a>
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form }}
+    </br>
+    </br>
+    <button type="submit" class="btn btn-outline-dark btn-block" id="submit-form" >{% block button_content %}{% endblock %}</button>
+    </form>
+{% endblock %}

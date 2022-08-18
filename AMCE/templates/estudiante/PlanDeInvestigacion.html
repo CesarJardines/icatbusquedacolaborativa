@@ -1,0 +1,68 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+{% block extra-css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+    </style>
+{% endblock %}
+
+{% block title %}
+    Pregunta Inicial
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand"> Plan de investigación</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+    <br>
+    <div >
+        
+            <h3> <p style="font-family: 'Capriola'; font-size: 20px;">La investigación del tema {{ temaNombre }} ha quedado definida por las siguientes preguntas:</p></h3> 
+            <br>
+            <br>
+
+            <h3> <p style="font-family: 'Capriola'; font-size: 20px;"> Pregunta Inicial: </p></h3> 
+            <ul>
+                <li><h6>{{ pregunta.id_pregunta.contenido }} </h6></li>
+            </ul>  
+              
+            <h3> <p style="font-family: 'Capriola'; font-size: 20px;"> Preguntas Secundarias: </p></h3> 
+            <ul>
+                {% for i in preguntasSecGanadas %}
+                <li><h6>{{ i.id_pregunta.contenido }}</h6></li>
+                {% endfor %}
+            </ul>  
+            <br>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        <center> 
+            <br> <a name="profesor" class="btn btn-primary" class="close" href="{% url 'AMCE:seleccionFuentes' id_grupo=id_grupo id_tema=id_tema %}" style=" background-color: #6FCFA1;
+border: 0px; padding: 5px 15px;">Continuar al siguente paso</a> </center>
+       
+    </div>
+    <!-- Modal a desplegar de ingresar código de clase -->
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- Core theme JS-->
+    <script src="{%static 'js/MG1.js' %}"></script>
+    <!-- JS para modal del ingresar código de clase-->
+    <script src="{%static 'js/modal.js' %}"></script>
+{% endblock %}
+
+{% block footer %}
+<footer style=" margin-left: 0px;">
+    <p style="position: relative; width:100%; left: 0px; bottom: 0; width: 100%;  text-align: center; color: black;">&copy; ICAT | UNAM</p>
+  </footer>
+{% endblock %}

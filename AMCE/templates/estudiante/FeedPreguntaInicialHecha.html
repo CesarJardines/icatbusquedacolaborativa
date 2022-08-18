@@ -1,0 +1,140 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+{% block extra-css %}
+<style>
+    .btn-secondary {
+    background-color: #6FCFA1 !important ;
+    color: #458365;
+}
+
+
+</style>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+</style>
+
+{% endblock %}
+{% block title %}
+    Análisis pregunta inicial
+{% endblock %}
+
+{% block header_ctxt %}
+<div class="nav-bar-title navbar-brand"> Análisis pregunta inicial</div>
+<a class=""></a>
+{% endblock %}
+
+
+{% block inner_content %}
+<center> <h3> <p style="font-family: 'Capriola'; font-size: 25px;"> Tema: {{temaPreguntaInicial.nombre_tema}} </p></h3> </center>
+<center> <h4> Vota y comenta por la pregunta inicial que te parezca mejor para plantear la investigación de tu equipo </h4> </center>
+<br>
+<br>
+
+        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content">
+                <div >
+                    <form method="post">
+                    {% csrf_token %}
+                    <div class="accordion" id="accordion">
+                    {% for i in numTotalPartici %}
+                    <br>
+                    <table style="width:100%">
+                        <tr>
+                          <td> <h4>{{i.id_pregunta.contenido}}</h4></td>
+                          <td>
+                            
+                                <div class="form-check">
+                                    <input class="btn-check" type="radio" name="voto" value="{{i.id_pregunta.estudiante_part.user_estudiante.id}}" id="voto{{forloop.counter}}" data-bs-toggle="collapse" data-bs-target="#retroUsuario{{forloop.counter}}" 
+                                    aria-expanded="false" aria-controls="retroUsuario{{forloop.counter}}" >
+                                    <label  class="btn btn-secondary" for="voto{{forloop.counter}}">
+                                        <i class="fa fa-thumbs-up"></i> 
+                                    </label>
+                                </div>
+                        
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                                <div id="retroUsuario{{forloop.counter}}" class="accordion-collapse collapse hide" data-bs-parent="#accordion">
+                                    
+                                    <p>Ingresa tu comentario</p>
+                                    <br>
+                                    <br>
+                                    <input type="text" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="comentario">
+                                    <br>
+                                    <br>
+                                
+                                </div>
+                                
+                            </td>
+                        </tr>
+                      </table>
+                    <br>
+                    <br>
+
+                {% endfor %}
+            </div>
+                    <br>
+                    </div>
+        </div>
+       
+        <button type="submit" style="color: white; background-color: #6FCFA1;
+            border: 0px; margin-left: 40%;">Continuar al siguiente paso</button>
+
+        
+    </form>
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+  //JS para cambiar el color del botón de las reacciones
+  var count = 1;
+    function setColor(btn, color) {
+        var property = document.getElementById(btn);
+        if (count == 0) {
+            property.style.backgroundColor = "#458365"
+            count = 1;        
+        }
+        else {
+            property.style.backgroundColor = "#458365"
+            count = 0;
+        }
+    }
+</script>
+
+<script>
+  function callTwoFunctions(){
+    //myFunction();
+    showhide('textinput')
+    setColor('button', '#6FCFA1');
+}
+</script>
+
+<script>
+  //https://stackoverflow.com/questions/16308779/how-can-i-hide-show-a-div-when-a-button-is-clicked
+  function showhide(id) {
+       	var e = document.getElementById(id);
+       	e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+     }
+</script>
+
+
+    <!-- Core theme JS-->
+    <script src="{%static 'js/MG1.js' %}"></script>
+    <!-- JS para modal del ingresar código de clase-->
+    <script src="{%static 'js/modal.js' %}"></script>
+{% endblock %}
+
+{% block footer %}
+<footer style=" margin-left: 0px;">
+    <p style="position: relative; width:100%; left: 0px; bottom: 0; width: 100%;  text-align: center; color: black;">&copy; ICAT | UNAM</p>
+  </footer>
+{% endblock %}

@@ -1,0 +1,28 @@
+
+{% extends "profesor/base_formpage.html" %}
+
+{% load static %}
+
+{% block extra-css %}
+    <link rel="stylesheet" href="{% static 'css/multiselect.css'%}"/>
+    <script src="{%static 'js/multiselect.min.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Crear Equipo
+{% endblock %}
+
+{% block header_ctxt %}
+    <a class="navbar-brand" href="{% url 'AMCE:ProfPaginaGrupo' id_grupo=id_grupo %}"><i style="color: white;" class="bi bi-x-lg"></i></a>
+    <div class="nav-bar-title navbar-brand" href="">Crear Equipo</div>
+{% endblock %}
+
+{% block button_content %}
+    Guardar
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.multiselect('#id_integrantes');
+    </script>
+{% endblock %}

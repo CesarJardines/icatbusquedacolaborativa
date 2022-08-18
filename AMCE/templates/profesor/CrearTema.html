@@ -1,0 +1,18 @@
+
+{% extends "profesor/base_formpage.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Crear Tema
+{% endblock %}
+
+{% block header_ctxt %}
+    <a class="navbar-brand" href="{% url 'AMCE:ProfMisTemas' %}"><i style="color: white;" class="bi bi-x-lg"></i></a>
+    <div class="nav-bar-title navbar-brand" href="">Crear Tema</div>
+{% endblock %}
+
+{% block button_content %}
+    Guardar Tema
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+   
+
+
+{% block extra-css %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap%27');
+    </style>
+
+    
+{% endblock %}
+
+{% block title %}
+    Seleccion de Fuentes
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand"> Busqueda de fuentes</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+
+<center><h4>¡Enhorabuena!</h4> </center>
+<br>
+<br>
+<h6>
+    Ahora toca evaluar las fuentes seleccionadas por tu equipo <br>
+    <br>
+<br>
+Para evaluar una fuente proveniente de internet, debes de prestar atención en tres criterios básicos:
+<ul>
+    <li>
+        Referencias generales, propiedades y propósitos del sitio web que publica el contenido de la fuente
+    </li>
+    <li>
+        Datos sobre el(los) autor(es) de los contenidos
+    </li>
+    <li>
+        Caracteristicas de la información que ofrece la fuente y su nivel de confiabilidad y pertinencia para la investigación
+    </li>
+</ul>
+</h6>
+<br>
+<br>
+<br>
+<br>
+
+<center> <a name="profesor" class="btn btn-primary" class="close" href="{% url 'AMCE:evaluarFuentes'  id_grupo=id_grupo id_tema=id_tema %}" style=" background-color: #6FCFA1;
+    border: 0px; padding: 5px 15px;" id="submit-form">Continuar al siguente paso</a></center>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+<footer style=" margin-left: 0px;">
+    <p style="font-family: 'Capriola'; position: absolute; width:100%; left: 0px; bottom: 0; width: 100%;  text-align: center; color: black;">&copy; ICAT | UNAM</p>
+  </footer>
+{% endblock %}
+
+
+{% block scripts %}
+
+
+{% endblock %}

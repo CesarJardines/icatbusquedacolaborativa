@@ -1,0 +1,53 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+
+
+    Pregunta Inicial
+
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand"> Análisis pregunta inicial</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+ <center><h4>¡Enhorabuena!</h4> </center>
+<br>
+<br>
+<h6>
+    Todos los integrantes de tu equipo han planteado su pregunta inicial. Ahora es momento de analizar las preguntas y votar por aquella que consideres que cumple con alguno o varios los puntos siguientes: <br>
+    <br>
+<br>
+<ul>
+    <li>
+        La pregunta es clara <br>
+    </li>
+    <li>
+        La pregunta no es simple <br>
+    </li>
+    <li>
+        La pregunta invita a la reflexión<br>
+    </li>
+    <li>
+        La pregunta genera curiosidad<br>
+    </li>
+</ul>
+</h6>
+<br>
+<br>
+<br>
+<br>
+
+<center> <a name="profesor" class="btn btn-primary" class="close" href="{% url 'AMCE:feedPIHecha' id_grupo=id_grupo id_tema=id_tema%}" style=" background-color: #6FCFA1;
+    border: 0px; padding: 5px 15px;" id="submit-form">Continuar al siguente paso</a></center>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Core theme JS-->
+    <script src="{%static 'js/MG1.js' %}"></script>
+    <!-- JS para modal del ingresar código de clase-->
+    <script src="{%static 'js/modal.js' %}"></script>
+{% endblock %}
+
+

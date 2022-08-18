@@ -1,0 +1,48 @@
+{% extends "estudiante/base_mainpage.html" %}
+
+{% load static %}
+
+{% block extra-css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+    </style>
+{% endblock %}
+
+{% block title %}
+    asdasdasdasdas
+{% endblock %}
+
+{% block header_ctxt %}
+    <div class="nav-bar-title navbar-brand"> Búsqueda de fuentes</div>
+    <a class=""></a>
+{% endblock %}
+
+{% block inner_content %}
+
+ <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-1 justify-content">
+    {% for i in search_items %}
+    <div class="col mb-3">
+        <div class="grupo-card card h-100" >
+            <div class="card-body p-4">
+                <a href="{{ i.link }}">
+                    <h3>{{i.title}}</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block footer %}
+<footer style=" margin-left: 0px;">
+    <p style="font-family: 'Capriola'; position: absolute; width:100%; left: 0px; bottom: 0; width: 100%;  text-align: center; color: black;">&copy; ICAT | UNAM</p>
+  </footer>
+{% endblock %}
+
